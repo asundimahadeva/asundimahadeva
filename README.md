@@ -18,8 +18,5 @@ I build agentic AI systems that survive contact with production. Currently, I am
 - **Cloud Infrastructure:** Microsoft Azure, AWS, GCP, AKS, ACA
 - **Data & Retrieval:** Databricks, Snowflake, Azure AI Search, Pinecone, Milvus
 
-### 📈 GitHub Stats
 
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=asundimahadeva&show_icons=true&theme=radical" alt="GitHub Stats" />
-</p>
+
