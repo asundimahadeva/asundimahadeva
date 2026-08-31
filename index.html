@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mahadeva Asundi — Consultant, AI Engineering</title>
+<meta name="description" content="Consultant, AI Engineering at NuSummit. Core engineer on the NuSummit Builder Platform (NBP), an enterprise no-code agentic AI platform live on the Microsoft Azure Marketplace.">
+<meta name="author" content="Mahadeva Asundi">
+<meta property="og:title" content="Mahadeva Asundi — Consultant, AI Engineering">
+<meta property="og:description" content="I build agentic AI systems that survive contact with production. Core engineer on the NuSummit Builder Platform (NBP).">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Inter+Tight:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   Mahadeva Asundi — portfolio
+   Design system: warm paper, ink, single clay accent.
+   Hand-written CSS. No frameworks, no runtime dependencies.
+   ============================================================ */
+
+:root{
+  --paper:#FCFCFD;
+  --paper-2:#F1F2F5;
+  --ink:#0B0C0E;
+  --ink-2:#3A3D42;
+  --muted:#71757C;
+  --rule:rgba(11,12,14,.12);
+  --rule-2:rgba(11,12,14,.26);
+  --accent:#1F3BE0;
+  --accent-soft:rgba(31,59,224,.08);
+
+  --dark:#0B0C0E;
+  --dark-2:#141519;
+  --dark-text:#F1F2F5;
+  --dark-muted:#8E939B;
+  --dark-rule:rgba(241,242,245,.14);
+  --accent-lit:#8FA3FF;
+
+  --rail-w:302px;
+  --gutter:clamp(24px,5vw,84px);
+  --measure:816px;
+
+  --sans:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --tight:'Inter Tight','Inter',system-ui,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,'SF Mono',Consolas,monospace;
+
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:16px;
+  font-weight:400;
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+  overflow-wrap:break-word;
+}
+::selection{background:var(--accent);color:#fff}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4{font-family:var(--tight);font-weight:600;letter-spacing:-.028em;line-height:1.06;margin:0}
+p{margin:0}
+img,svg{max-width:100%}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+
+/* ---------- hero grid field ---------- */
+.hero::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:
+    linear-gradient(var(--rule) 1px,transparent 1px),
+    linear-gradient(90deg,var(--rule) 1px,transparent 1px);
+  background-size:72px 72px;
+  -webkit-mask-image:radial-gradient(120% 78% at 42% 4%,#000 0%,rgba(0,0,0,.55) 42%,transparent 78%);
+  mask-image:radial-gradient(120% 78% at 42% 4%,#000 0%,rgba(0,0,0,.55) 42%,transparent 78%);
+  opacity:.72;
+}
+.hero > .wrap{position:relative;z-index:1}
+
+/* ---------- shared type utilities ---------- */
+.eyebrow{
+  font-family:var(--mono);font-size:11px;font-weight:500;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--muted);
+}
+.accent-em{color:var(--accent);font-weight:inherit;white-space:nowrap}
+.contact .accent-em,.nbp .accent-em{color:var(--accent-lit)}
+.lead{font-size:clamp(17px,1.5vw,19.5px);line-height:1.68;color:var(--ink-2);font-weight:300}
+.muted{color:var(--muted)}
+
+/* ============================================================
+   LEFT RAIL
+   ============================================================ */
+.rail{
+  position:fixed;top:0;left:0;bottom:0;width:var(--rail-w);
+  display:flex;flex-direction:column;justify-content:space-between;
+  padding:48px 40px;border-right:1px solid var(--rule);
+  background:var(--paper);z-index:60;
+}
+.mark{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:44px;height:44px;border:1px solid var(--rule-2);border-radius:50%;
+  font-family:var(--tight);font-weight:700;font-size:15px;letter-spacing:-.02em;
+  transition:background .35s var(--ease),color .35s var(--ease),border-color .35s var(--ease);
+}
+.mark:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.rail-name{font-family:var(--tight);font-size:21px;font-weight:600;letter-spacing:-.03em;margin-top:24px}
+.rail-role{font-size:13.5px;color:var(--muted);margin-top:4px}
+
+.rail-nav{display:flex;flex-direction:column;gap:2px;margin:40px 0}
+.rail-nav a{
+  display:flex;align-items:baseline;gap:14px;padding:7px 0;
+  font-size:14px;color:var(--muted);
+  transition:color .3s var(--ease),transform .3s var(--ease);
+}
+.rail-nav a .n{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;opacity:.6;transition:color .3s var(--ease),opacity .3s var(--ease)}
+.rail-nav a::after{
+  content:"";flex:1;height:1px;background:var(--rule);
+  transform:scaleX(0);transform-origin:left;transition:transform .45s var(--ease),background .3s var(--ease);
+}
+.rail-nav a:hover{color:var(--ink);transform:translateX(3px)}
+.rail-nav a[aria-current="true"]{color:var(--ink);font-weight:500}
+.rail-nav a[aria-current="true"] .n{color:var(--accent);opacity:1}
+.rail-nav a[aria-current="true"]::after{transform:scaleX(1);background:var(--rule-2)}
+
+.status{display:flex;align-items:center;gap:9px;font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--muted);margin-bottom:20px}
+.dot{position:relative;width:6px;height:6px;border-radius:50%;background:var(--accent);flex:none}
+.dot::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:1px solid var(--accent);opacity:.5;animation:ping 2.6s var(--ease) infinite}
+@keyframes ping{0%{transform:scale(.6);opacity:.6}70%,100%{transform:scale(1.5);opacity:0}}
+
+.rail-links{display:flex;flex-direction:column;gap:7px}
+.rail-links a{font-size:13.5px;color:var(--muted);width:fit-content;position:relative;transition:color .3s var(--ease)}
+.rail-links a::after{content:"";position:absolute;left:0;bottom:-1px;width:100%;height:1px;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .4s var(--ease)}
+.rail-links a:hover{color:var(--accent)}
+.rail-links a:hover::after{transform:scaleX(1);transform-origin:left}
+
+/* mobile top bar */
+.topbar{
+  display:none;position:sticky;top:0;z-index:60;
+  align-items:center;justify-content:space-between;gap:16px;
+  padding:14px var(--gutter);
+  background:rgba(252,252,253,.88);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--rule);
+}
+.topbar .tb-name{font-family:var(--tight);font-weight:600;font-size:16px;letter-spacing:-.02em}
+.topbar .tb-links{display:flex;gap:16px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+/* ============================================================
+   MAIN
+   ============================================================ */
+main{margin-left:var(--rail-w)}
+.wrap{max-width:var(--measure);margin:0 auto;padding:0 var(--gutter)}
+section{position:relative}
+
+.sec-head{display:flex;align-items:baseline;gap:18px;margin-bottom:44px}
+.sec-head .rule{flex:1;height:1px;background:var(--rule)}
+.sec-title{font-size:clamp(26px,3vw,34px);font-weight:600}
+
+/* ---------- reveal ---------- */
+.rv{opacity:0;transform:translateY(14px);transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:calc(var(--i,0)*70ms)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .rv{opacity:1;transform:none;transition:none}
+  .dot::after{animation:none}
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{padding:clamp(96px,16vh,168px) 0 clamp(72px,10vh,104px)}
+.hero h1{
+  font-size:clamp(38px,6.2vw,74px);
+  font-weight:700;letter-spacing:-.042em;line-height:1.02;
+  margin:26px 0 0;max-width:15ch;
+}
+.hero .lead{margin-top:30px;max-width:60ch}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:40px}
+
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:13px 22px;border-radius:999px;border:1px solid var(--ink);
+  background:var(--ink);color:var(--paper);
+  font-size:14px;font-weight:500;
+  transition:background .35s var(--ease),color .35s var(--ease),transform .35s var(--ease),border-color .35s var(--ease);
+}
+.btn:hover{background:var(--accent);border-color:var(--accent);transform:translateY(-2px)}
+.btn .arw{transition:transform .35s var(--ease)}
+.btn:hover .arw{transform:translateX(4px)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--rule-2)}
+.btn-ghost:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+
+/* hero fact strip */
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:64px;border-top:1px solid var(--rule)}
+.facts div{padding:22px 26px 0 0;border-right:1px solid var(--rule)}
+.facts div:last-child{border-right:0}
+.facts dt{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.facts dd{margin:8px 0 0;font-family:var(--tight);font-size:16px;font-weight:500;letter-spacing:-.02em;line-height:1.35}
+
+/* ============================================================
+   ABOUT
+   ============================================================ */
+.about{padding:clamp(72px,10vh,110px) 0}
+.about .lead+.lead{margin-top:20px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);margin-top:56px;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.stats div{padding:26px 20px 26px 0;border-right:1px solid var(--rule)}
+.stats div:last-child{border-right:0}
+.stats .fig{font-family:var(--tight);font-size:clamp(28px,3.4vw,38px);font-weight:600;letter-spacing:-.045em;line-height:1}
+.stats .cap{font-size:12.5px;color:var(--muted);margin-top:9px;line-height:1.42;max-width:18ch}
+
+/* ============================================================
+   NBP — inverted full-bleed
+   ============================================================ */
+.nbp{background:var(--dark);color:var(--dark-text);padding:clamp(80px,11vh,124px) 0;margin-top:24px}
+.nbp .eyebrow{color:var(--dark-muted)}
+.nbp .sec-head .rule{background:var(--dark-rule)}
+.badges{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:26px}
+.badge{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:6px 14px;border-radius:999px;border:1px solid var(--dark-rule);
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--dark-muted);
+}
+.badge.live{border-color:rgba(143,163,255,.42);color:var(--accent-lit);background:rgba(143,163,255,.07)}
+.nbp h2.big{font-size:clamp(34px,5.4vw,60px);font-weight:700;letter-spacing:-.045em;line-height:1.03;margin-bottom:20px}
+.nbp .kicker{
+  font-family:var(--mono);font-size:12px;font-weight:400;letter-spacing:.08em;
+  color:var(--accent-lit);margin-bottom:28px;line-height:1.7;max-width:56ch;
+  padding-left:18px;border-left:2px solid rgba(143,163,255,.4);
+}
+.nbp .body{color:#B9BDC6;font-weight:300;font-size:clamp(16px,1.5vw,18.5px);line-height:1.7;max-width:62ch}
+
+/* architecture figure */
+.arch{margin:60px 0 8px;border:1px solid var(--dark-rule);border-radius:4px;background:var(--dark-2);padding:26px 22px 18px;overflow-x:auto}
+.arch svg{display:block;min-width:600px;width:100%;height:auto}
+.arch figcaption{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--dark-muted);margin-top:18px;padding-top:14px;border-top:1px solid var(--dark-rule)}
+
+/* capability list */
+.caps{margin-top:56px;border-top:1px solid var(--dark-rule)}
+.cap-row{display:grid;grid-template-columns:52px 1fr;gap:0 22px;padding:22px 0;border-bottom:1px solid var(--dark-rule)}
+.cap-row .n{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--accent-lit);padding-top:4px}
+.cap-row h4{font-size:17px;font-weight:600;letter-spacing:-.02em;margin-bottom:7px}
+.cap-row p{font-size:14.5px;color:var(--dark-muted);line-height:1.6;max-width:64ch;font-weight:300}
+
+.contrib{margin-top:56px}
+.contrib h3{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--dark-muted);margin-bottom:22px}
+.contrib ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:14px 44px}
+.contrib li{position:relative;padding-left:20px;font-size:14.5px;line-height:1.58;color:#B9BDC6;font-weight:300}
+.contrib li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:1px;background:var(--accent-lit)}
+
+.nbp-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:52px}
+.btn-lit{border-color:var(--dark-text);background:var(--dark-text);color:var(--dark)}
+.btn-lit:hover{background:var(--accent-lit);border-color:var(--accent-lit);color:var(--dark)}
+.btn-outline{background:transparent;color:var(--dark-text);border-color:var(--dark-rule)}
+.btn-outline:hover{background:var(--dark-text);color:var(--dark);border-color:var(--dark-text)}
+
+/* ============================================================
+   EXPERIENCE
+   ============================================================ */
+.work{padding:clamp(80px,11vh,120px) 0}
+.job{display:grid;grid-template-columns:150px 1fr;gap:0 32px;padding:34px 0;border-top:1px solid var(--rule)}
+.job:last-of-type{border-bottom:1px solid var(--rule)}
+.job .when{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--muted);padding-top:6px;line-height:1.7}
+.job h3{font-size:21px;font-weight:600;letter-spacing:-.025em}
+.job .org{font-size:14px;color:var(--accent);margin-top:5px;font-weight:500}
+.job .desc{margin-top:16px;font-size:15px;color:var(--ink-2);line-height:1.65;max-width:64ch;font-weight:300}
+.job ul{list-style:none;margin:18px 0 0;padding:0;display:flex;flex-direction:column;gap:11px}
+.job li{position:relative;padding-left:20px;font-size:14.5px;color:var(--ink-2);line-height:1.6;max-width:66ch;font-weight:300}
+.job li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:1px;background:var(--accent)}
+.tech{display:flex;flex-wrap:wrap;gap:7px;margin-top:20px}
+.tech span{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--muted);border:1px solid var(--rule);border-radius:3px;padding:4px 9px}
+
+/* ============================================================
+   PROJECT INDEX
+   ============================================================ */
+.projects{padding:clamp(72px,10vh,110px) 0;background:var(--paper-2)}
+.idx{border-top:1px solid var(--rule)}
+.idx-row{
+  display:grid;grid-template-columns:46px 1fr 128px;gap:0 24px;align-items:start;
+  padding:26px 0;border-bottom:1px solid var(--rule);
+  transition:background .4s var(--ease);
+}
+.idx-row:hover{background:rgba(31,59,224,.045)}
+.idx-row .n{font-family:var(--mono);font-size:11px;color:var(--muted);padding-top:5px;transition:color .3s var(--ease)}
+.idx-row:hover .n{color:var(--accent)}
+.idx-row h3{font-size:18.5px;font-weight:600;letter-spacing:-.025em;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.idx-row h3 .arw{opacity:0;transform:translateX(-5px);transition:opacity .35s var(--ease),transform .35s var(--ease);color:var(--accent)}
+.idx-row:hover h3 .arw{opacity:1;transform:none}
+.idx-row p{font-size:14.5px;color:var(--ink-2);margin-top:9px;line-height:1.6;max-width:62ch;font-weight:300}
+.idx-row .side{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--muted);padding-top:6px;line-height:1.8;text-align:right}
+.tag{display:inline-block;font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);background:var(--accent-soft);border-radius:3px;padding:3px 8px;vertical-align:2px}
+
+/* ============================================================
+   STACK
+   ============================================================ */
+.stack{padding:clamp(80px,11vh,120px) 0}
+.srow{display:grid;grid-template-columns:200px 1fr;gap:0 32px;padding:24px 0;border-top:1px solid var(--rule)}
+.srow:last-of-type{border-bottom:1px solid var(--rule)}
+.srow dt{font-family:var(--tight);font-size:15.5px;font-weight:600;letter-spacing:-.02em}
+.srow dd{margin:0;font-size:14.5px;color:var(--ink-2);line-height:1.85;font-weight:300}
+.srow dd b{font-weight:500;color:var(--ink)}
+
+/* ============================================================
+   CREDENTIALS
+   ============================================================ */
+.creds{padding:0 0 clamp(80px,11vh,120px)}
+.creds-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 56px}
+.creds h3{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);padding-bottom:14px;border-bottom:1px solid var(--rule);margin-bottom:6px}
+.cred{padding:18px 0;border-bottom:1px solid var(--rule)}
+.cred .t{font-family:var(--tight);font-size:15.5px;font-weight:600;letter-spacing:-.02em;line-height:1.35}
+.cred .m{font-size:13px;color:var(--muted);margin-top:5px}
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+.contact{background:var(--dark);color:var(--dark-text);padding:clamp(90px,13vh,140px) 0 56px}
+.contact .eyebrow{color:var(--dark-muted)}
+.contact h2{font-size:clamp(34px,5.6vw,64px);font-weight:700;letter-spacing:-.045em;line-height:1.04;margin:24px 0 0;max-width:16ch}
+.contact .body{color:#B9BDC6;font-weight:300;font-size:17px;line-height:1.68;margin-top:24px;max-width:52ch}
+.clinks{display:flex;flex-direction:column;margin-top:52px;border-top:1px solid var(--dark-rule)}
+.clink{
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+  padding:20px 0;border-bottom:1px solid var(--dark-rule);
+  transition:padding-left .4s var(--ease),color .3s var(--ease);
+}
+.clink:hover{padding-left:14px;color:var(--accent-lit)}
+.clink .l{font-family:var(--tight);font-size:clamp(17px,2.2vw,22px);font-weight:500;letter-spacing:-.025em;min-width:0;overflow-wrap:anywhere}
+.clink .r{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--dark-muted);display:flex;align-items:center;gap:12px;flex:none}
+.clink:hover .r{color:var(--accent-lit)}
+.colophon{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:56px;font-family:var(--mono);font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--dark-muted)}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width:1100px){
+  .rail{display:none}
+  .topbar{display:flex}
+  main{margin-left:0}
+  .contrib ul{grid-template-columns:1fr}
+}
+@media (max-width:760px){
+  .facts{grid-template-columns:1fr;border-top:0}
+  .facts div{border-right:0;border-top:1px solid var(--rule);padding:18px 0}
+  .stats{grid-template-columns:1fr 1fr}
+  .stats div:nth-child(2){border-right:0}
+  .stats div:nth-child(1),.stats div:nth-child(2){border-bottom:1px solid var(--rule)}
+  .job{grid-template-columns:1fr;gap:0}
+  .job .when{padding-top:0;margin-bottom:12px}
+  .idx-row{grid-template-columns:34px 1fr;gap:0 16px}
+  .idx-row .side{grid-column:2;text-align:left;padding-top:12px}
+  .srow{grid-template-columns:1fr;gap:8px}
+  .creds-grid{grid-template-columns:1fr;gap:44px}
+  .cap-row{grid-template-columns:38px 1fr;gap:0 14px}
+  .sec-head{margin-bottom:32px}
+  .clink{flex-wrap:wrap;gap:4px 16px}
+  .clink .l{font-size:16px}
+  .clink .r{font-size:10px}
+}
+</style>
+</head>
+<body>
+
+<!-- ========================= RAIL ========================= -->
+<aside class="rail">
+  <div>
+    <a href="#top" class="mark" aria-label="Back to top">MA</a>
+    <p class="rail-name">Mahadeva Asundi</p>
+    <p class="rail-role">Consultant, AI Engineering</p>
+
+    <nav class="rail-nav" aria-label="Sections">
+      <a href="#about"><span class="n">01</span><span class="lbl">About</span></a>
+      <a href="#nbp"><span class="n">02</span><span class="lbl">NBP Platform</span></a>
+      <a href="#work"><span class="n">03</span><span class="lbl">Experience</span></a>
+      <a href="#projects"><span class="n">04</span><span class="lbl">Selected Work</span></a>
+      <a href="#stack"><span class="n">05</span><span class="lbl">Stack</span></a>
+      <a href="#credentials"><span class="n">06</span><span class="lbl">Credentials</span></a>
+    </nav>
+  </div>
+
+  <div>
+    <p class="status"><span class="dot"></span>Currently building NBP</p>
+    <div class="rail-links">
+      <a href="mailto:amahadevgowda@gmail.com">Email</a>
+      <a href="tel:+917337779323">+91 733-777-9323</a>
+      <a href="https://www.linkedin.com/in/mahadeva-asundi/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/asundimahadeva" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</aside>
+
+<!-- ========================= TOPBAR (mobile) ========================= -->
+<div class="topbar">
+  <a href="#top" class="tb-name">Mahadeva Asundi</a>
+  <div class="tb-links">
+    <a href="#nbp">NBP</a>
+    <a href="#work">Work</a>
+    <a href="mailto:amahadevgowda@gmail.com">Email</a>
+  </div>
+</div>
+
+<main id="top">
+
+  <!-- ========================= HERO ========================= -->
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow rv">Consultant, AI Engineering — NuSummit</p>
+
+      <h1 class="rv" style="--i:1">
+        I build agentic AI systems that survive contact with <span class="accent-em">production.</span>
+      </h1>
+
+      <p class="lead rv" style="--i:2">
+        Core engineer on the <strong style="font-weight:500">NuSummit Builder Platform</strong> — an enterprise
+        no-code platform for building, deploying, and governing multi-agent AI on Microsoft Azure,
+        published on the Azure Marketplace.
+      </p>
+
+      <div class="hero-actions rv" style="--i:3">
+        <a class="btn" href="#nbp">See the platform <span class="arw" aria-hidden="true">&rarr;</span></a>
+        <a class="btn btn-ghost" href="mailto:amahadevgowda@gmail.com">Get in touch</a>
+      </div>
+
+      <dl class="facts rv" style="--i:4">
+        <div>
+          <dt>Now</dt>
+          <dd>NuSummit Builder Platform</dd>
+        </div>
+        <div>
+          <dt>Shipped</dt>
+          <dd>4 products on Azure Marketplace</dd>
+        </div>
+        <div>
+          <dt>Focus</dt>
+          <dd>Multi-agent orchestration &amp; governance</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ========================= 01 ABOUT ========================= -->
+  <section class="about" id="about">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow">01</span>
+        <h2 class="sec-title">About</h2>
+        <span class="rule"></span>
+      </div>
+
+      <p class="lead rv" style="--i:1">
+        I'm an AI engineering consultant working on the part of the problem most teams underestimate:
+        the distance between a working prototype and a system an enterprise will actually run. My work on
+        NBP spans the orchestration engine, the agent runtime, and the governance layer that makes all of it
+        safe to point at real company data — cloud infrastructure, platform engineering, and cloud security,
+        almost entirely inside the Microsoft Azure ecosystem, with Databricks and Snowflake behind the analytics.
+      </p>
+
+      <p class="lead rv" style="--i:2">
+        Before NBP I spent two years shipping document-intelligence and retrieval systems for enterprise
+        clients — three of them published as Azure Managed Applications on the Marketplace under Affine Inc.
+        OCR pipelines, text-to-SQL analytics, multi-tenant FastAPI backends. I care most about
+        the unglamorous parts: latency, cost per request, evaluation, and whether the thing still works in
+        <span class="accent-em">week ten.</span>
+      </p>
+
+      <div class="stats rv" style="--i:3">
+        <div><p class="fig">2+</p><p class="cap">Years building production AI</p></div>
+        <div><p class="fig">4</p><p class="cap">Products live on Azure Marketplace</p></div>
+        <div><p class="fig">50%</p><p class="cap">LLM latency &amp; cost reduced</p></div>
+        <div><p class="fig">30%</p><p class="cap">Kannada OCR accuracy gain</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= 02 NBP ========================= -->
+  <section class="nbp" id="nbp">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow">02</span>
+        <h2 class="sec-title">Flagship</h2>
+        <span class="rule"></span>
+      </div>
+
+      <div class="badges rv" style="--i:1">
+        <span class="badge live">Live on Azure Marketplace</span>
+        <span class="badge">NuSummit Technologies</span>
+        <span class="badge">SaaS</span>
+      </div>
+
+      <h2 class="big rv" style="--i:2">NuSummit Builder Platform</h2>
+      <p class="kicker rv" style="--i:3">&ldquo;Orchestrating Relevance, Resilience and Returns at Enterprise Scale.&rdquo;</p>
+      <p class="body rv" style="--i:4">
+        A no-code platform that lets enterprises build, deploy, and govern multi-agent AI solutions on Azure.
+        Teams compose workflows on a drag-and-drop canvas — or describe an outcome in plain English and let the
+        platform generate the workflow — then publish the result as an MCP tool or a secure REST API.
+      </p>
+
+      <!-- architecture -->
+      <figure class="arch rv" style="--i:5">
+        <svg viewBox="0 0 720 300" role="img" aria-labelledby="archTitle archDesc">
+          <title id="archTitle">NBP platform architecture</title>
+          <desc id="archDesc">Five stacked layers: Experience and Integration, Governance and Control, Agent and Workflow, Intelligence, and Foundation Models.</desc>
+          <defs>
+            <style>
+              .lyr{fill:#0B0C0E;stroke:rgba(241,242,245,.18)}
+              .lyr-hi{fill:rgba(143,163,255,.10);stroke:rgba(143,163,255,.5)}
+              .nm{font-family:'Inter Tight',sans-serif;font-size:15px;font-weight:600;fill:#F1F2F5;letter-spacing:-.02em}
+              .dt{font-family:'JetBrains Mono',monospace;font-size:10.5px;fill:#8E939B;letter-spacing:.04em}
+              .ix{font-family:'JetBrains Mono',monospace;font-size:10.5px;fill:#63666C;letter-spacing:.08em}
+              .hi{fill:#8FA3FF}
+            </style>
+          </defs>
+
+          <text class="ix" x="46" y="35" text-anchor="end">L1</text>
+          <rect class="lyr" x="64" y="8" width="636" height="44" rx="3"/>
+          <text class="nm" x="88" y="35">Experience &amp; Integration</text>
+          <text class="dt" x="676" y="35" text-anchor="end">canvas · chat · MCP tools · REST</text>
+
+          <text class="ix" x="46" y="91" text-anchor="end">L2</text>
+          <rect class="lyr" x="64" y="64" width="636" height="44" rx="3"/>
+          <text class="nm" x="88" y="91">Governance &amp; Control</text>
+          <text class="dt" x="676" y="91" text-anchor="end">RBAC · Entra ID SSO · audit · PII</text>
+
+          <text class="ix hi" x="46" y="147" text-anchor="end">L3</text>
+          <rect class="lyr-hi" x="64" y="120" width="636" height="44" rx="3"/>
+          <text class="nm" x="88" y="147">Agent &amp; Workflow</text>
+          <text class="dt" x="676" y="147" text-anchor="end">AutoGen · CodeAct · human-in-the-loop</text>
+
+          <text class="ix" x="46" y="203" text-anchor="end">L4</text>
+          <rect class="lyr" x="64" y="176" width="636" height="44" rx="3"/>
+          <text class="nm" x="88" y="203">Intelligence</text>
+          <text class="dt" x="676" y="203" text-anchor="end">RAG · knowledge · NL-to-SQL</text>
+
+          <text class="ix" x="46" y="259" text-anchor="end">L5</text>
+          <rect class="lyr" x="64" y="232" width="636" height="44" rx="3"/>
+          <text class="nm" x="88" y="259">Foundation Models</text>
+          <text class="dt" x="676" y="259" text-anchor="end">OpenAI · Gemini · Claude · Llama · local</text>
+
+          <line x1="30" y1="14" x2="30" y2="270" stroke="rgba(241,242,245,.16)" stroke-width="1"/>
+          <circle cx="30" cy="14" r="2.5" fill="#8FA3FF"/>
+          <circle cx="30" cy="270" r="2.5" fill="rgba(241,242,245,.3)"/>
+        </svg>
+        <figcaption>Platform layers — L3 marks where most of my work sits</figcaption>
+      </figure>
+
+      <!-- capabilities -->
+      <div class="caps">
+        <div class="cap-row rv"><span class="n">01</span><div>
+          <h4>Visual multi-agent orchestration</h4>
+          <p>Drag-and-drop workflow canvas, plus AI-assisted workflow generation from a plain-English instruction.</p>
+        </div></div>
+        <div class="cap-row rv" style="--i:1"><span class="n">02</span><div>
+          <h4>Autonomous agents</h4>
+          <p>Pre-built agents that plan, execute code, query data, and refine tasks — RAG, deep research, document understanding, and sandboxed CodeAct execution in Python.</p>
+        </div></div>
+        <div class="cap-row rv" style="--i:2"><span class="n">03</span><div>
+          <h4>Natural-language-to-SQL analytics</h4>
+          <p>A schema-aware workbench with automated query correction and visualization, so analysts query governed enterprise data without writing SQL.</p>
+        </div></div>
+        <div class="cap-row rv" style="--i:3"><span class="n">04</span><div>
+          <h4>Governance from day one</h4>
+          <p>RBAC, Microsoft Entra ID SSO, audit logging, configurable PII redaction, and full request tracing — not bolted on after the pilot.</p>
+        </div></div>
+        <div class="cap-row rv" style="--i:4"><span class="n">05</span><div>
+          <h4>Intelligent model routing</h4>
+          <p>Task-aware selection across OpenAI, Gemini, Claude, Llama, and local models, with automated prompt optimization and A/B model evaluation.</p>
+        </div></div>
+        <div class="cap-row rv" style="--i:5"><span class="n">06</span><div>
+          <h4>Publish as MCP tool or REST API</h4>
+          <p>Any published workflow becomes callable from Copilot, IDEs, and other MCP-compatible clients — or as a secured REST endpoint.</p>
+        </div></div>
+      </div>
+
+      <div class="contrib rv">
+        <h3>What I own</h3>
+        <ul>
+          <li>Microservices backend on FastAPI and Azure PostgreSQL</li>
+          <li>Kong API Gateway fronting LLM traffic — routing, balancing, cost control</li>
+          <li>The AutoGen, Langchain, Langgraph & DeepAgents - based orchestration engine and its tool/connector layer</li>
+          <li>The natural-language-to-SQL workbench end to end</li>
+          <li>Custom Databricks & Snowflake along with SQL(Postgres, MySql, AzureSQL) Connectors and Git version control for agent analytics</li>
+          <li>Real-time WebSocket streaming with human-in-the-loop checkpoints</li>
+          <li>Enterprise governance — RBAC, Entra ID SSO, audit logging, PII redaction</li>
+          <li>Automated testing and CI/CD pipeline With Microsoft Azure ecosystem</li>
+        </ul>
+      </div>
+
+      <div class="nbp-actions rv">
+        <a class="btn btn-lit" href="https://marketplace.microsoft.com/en-eg/product/nusummittechnologies1779899165384.nbp" target="_blank" rel="noopener">Azure Marketplace <span class="arw" aria-hidden="true">&#8599;</span></a>
+        <a class="btn btn-outline" href="https://www.nusummit.com/nbp/" target="_blank" rel="noopener">nusummit.com/nbp <span class="arw" aria-hidden="true">&#8599;</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= 03 EXPERIENCE ========================= -->
+  <section class="work" id="work">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow">03</span>
+        <h2 class="sec-title">Experience</h2>
+        <span class="rule"></span>
+      </div>
+
+      <article class="job rv">
+        <p class="when">Oct 2025 —<br>Present</p>
+        <div>
+          <h3>Consultant, AI Engineering</h3>
+          <p class="org">NuSummit</p>
+          <p class="desc">Core engineer on the NuSummit Builder Platform, plus client delivery on multi-agent systems for financial services.</p>
+          <ul>
+            <li>Architected the microservices backend on FastAPI and Azure PostgreSQL, with Kong API Gateway handling LLM request routing, load balancing, and model-tier selection.</li>
+            <li>Engineered the dynamic orchestration engine on the AutoGen framework, powering the workflow canvas and the RAG, deep research, and CodeAct agents.</li>
+            <li>Delivered the schema-aware natural-language-to-SQL workbench and the MCP/REST workflow publishing path.</li>
+            <li>Implemented enterprise governance — RBAC, Entra ID SSO, audit logging, PII redaction — alongside WebSocket streaming with human-in-the-loop checkpoints.</li>
+            <li>Scaled multi-agent Microsoft Teams bots on Azure OpenAI for <b style="font-weight:500">Bandhan AMC</b>, cutting latency and cost 50%+ via adaptive prompt routing, caching, and model-tier selection.</li>
+          </ul>
+          <div class="tech"><span>AutoGen</span><span>FastAPI</span><span>Kong</span><span>Azure OpenAI</span><span>Azure Container Apps</span><span>PostgreSQL</span><span>Databricks</span><span>MCP</span><span>Entra ID</span><span>RBAC</span><span>Docker</span></div>
+        </div>
+      </article>
+
+      <article class="job rv">
+        <p class="when">Apr 2024 —<br>Sept 2025</p>
+        <div>
+          <h3>Intern &rarr; Senior Associate Software Engineer</h3>
+          <p class="org">EPIC Software Consultancy</p>
+          <p class="desc">Production AI and backend delivery for enterprise clients including Origamis AI and Affine.</p>
+          <ul>
+            <li>Engineered autonomous document workflows with AutoGen, WebSurf agents, and GPT-4o for zero-touch handling; lifted Kannada OCR accuracy 30% using Azure AI.</li>
+            <li>Deployed multi-tenant backends on FastAPI and Docker, reducing operational cost 50%.</li>
+            <li>Architected compliance pipelines with high-accuracy text-to-SQL reporting backed by Cosmos DB metadata APIs.</li>
+            <li>Built enterprise GenAI search on Azure AI Search and Pinecone using advanced chunking and semantic embeddings; cut manual product tagging effort by over 40%.</li>
+            <li>Shipped <b style="font-weight:500">three Azure Managed Applications to the Microsoft Azure Marketplace</b> for Affine Inc — IntelliTag, Eryl, and Quin — covering product attribution, document intelligence, and natural-language analytics.</li>
+          </ul>
+          <div class="tech"><span>GPT-4o</span><span>Azure OpenAI</span><span>Azure AI Search</span><span>Pinecone</span><span>Cosmos DB</span><span>Azure SQL</span><span>AKS</span><span>API Management</span><span>Prompt Flow</span><span>Form Recognizer</span><span>Docker</span></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ========================= 04 SELECTED WORK ========================= -->
+  <section class="projects" id="projects">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow">04</span>
+        <h2 class="sec-title">Selected work</h2>
+        <span class="rule"></span>
+      </div>
+
+      <div class="idx">
+        <a class="idx-row rv" href="https://marketplace.microsoft.com/en-us/product/affineanalyticspvtltd1595517788010.intellitag-ama-gen-ai-01" target="_blank" rel="noopener">
+          <span class="n">01</span>
+          <div>
+            <h3>IntelliTag <span class="tag">Azure Marketplace</span> <span class="arw" aria-hidden="true">&#8599;</span></h3>
+            <p>Product attribution from digital assets, published as an Azure Managed Application. GPT-4o identifies implicit and explicit product attributes, and a feedback-and-retraining loop keeps predictions improving. Cut manual tagging effort by over 40%.</p>
+          </div>
+          <span class="side">Affine Inc<br>GPT-4o · AI Vision · Cosmos DB</span>
+        </a>
+
+        <a class="idx-row rv" style="--i:1" href="https://marketplace.microsoft.com/en-us/product/affineanalyticspvtltd1595517788010.eryl-ama-gen-ai-01-2" target="_blank" rel="noopener">
+          <span class="n">02</span>
+          <div>
+            <h3>Eryl <span class="tag">Azure Marketplace</span> <span class="arw" aria-hidden="true">&#8599;</span></h3>
+            <p>Domain-centric information assistant. Azure OpenAI embedding models index the document corpus; natural-language queries return context-aware answers, multi-document summaries, and a built-in QnA bot.</p>
+          </div>
+          <span class="side">Affine Inc<br>RAG · Embeddings</span>
+        </a>
+
+        <a class="idx-row rv" style="--i:2" href="https://marketplace.microsoft.com/en-us/product/affineanalyticspvtltd1595517788010.affine-openai-quin-ama" target="_blank" rel="noopener">
+          <span class="n">03</span>
+          <div>
+            <h3>Quin <span class="tag">Azure Marketplace</span> <span class="arw" aria-hidden="true">&#8599;</span></h3>
+            <p>Natural-language data analysis over tabular sources. Turns plain-English prompts into queries, plots, and automated reports across SQL, CSV, and cloud storage.</p>
+          </div>
+          <span class="side">Affine Inc<br>Azure SQL · GPT-4o</span>
+        </a>
+
+        <a class="idx-row rv" style="--i:3" href="https://github.com/asundimahadeva" target="_blank" rel="noopener">
+          <span class="n">04</span>
+          <div>
+            <h3>LinkedIn MCP Server <span class="arw" aria-hidden="true">&#8599;</span></h3>
+            <p>Open-source Model Context Protocol server that lets AI assistants interface securely with LinkedIn data and workflows.</p>
+          </div>
+          <span class="side">Open source<br>MCP · Agents</span>
+        </a>
+
+        <div class="idx-row rv" style="--i:4">
+          <span class="n">05</span>
+          <div>
+            <h3>DocuAgent <span class="tag">Origamis AI</span></h3>
+            <p>Zero-touch purchase-order automation. Autonomous document workflows on AutoGen and WebSurf agents, with Kannada OCR accuracy raised 30% via Azure AI.</p>
+          </div>
+          <span class="side">AutoGen · GPT-4o<br>Form Recognizer</span>
+        </div>
+
+        <div class="idx-row rv" style="--i:5">
+          <span class="n">06</span>
+          <div>
+            <h3>DataAgent</h3>
+            <p>AutoGen-orchestrated compliance pipelines with high-accuracy text-to-SQL reporting over secured Cosmos DB metadata APIs.</p>
+          </div>
+          <span class="side">Text-to-SQL<br>Cosmos DB</span>
+        </div>
+
+        <div class="idx-row rv" style="--i:6">
+          <span class="n">07</span>
+          <div>
+            <h3>InstiSales <span class="tag">Origamis AI</span></h3>
+            <p>Centralized lead-management backend on FastAPI and PostgreSQL, with automated ingestion pipelines feeding client dashboards over REST.</p>
+          </div>
+          <span class="side">FastAPI<br>PostgreSQL</span>
+        </div>
+
+        <div class="idx-row rv" style="--i:7">
+          <span class="n">08</span>
+          <div>
+            <h3>HRMS Agentic Bot <span class="tag">Origamis AI</span></h3>
+            <p>Agent-backed chatbot layered onto an existing HRMS portal, interpreting and executing employee queries through a secure API orchestration layer.</p>
+          </div>
+          <span class="side">Agents<br>API orchestration</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= 05 STACK ========================= -->
+  <section class="stack" id="stack">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow">05</span>
+        <h2 class="sec-title">Stack</h2>
+        <span class="rule"></span>
+      </div>
+
+      <dl>
+        <div class="srow rv">
+          <dt>Agentic &amp; GenAI</dt>
+          <dd><b>AutoGen · LangChain · LangGraph </b> · Hugging Face smolagents · <b>MCP</b> · OpenAI API · GPT-4o · Azure OpenAI · Azure Bot Service · n8n</dd>
+        </div>
+        <div class="srow rv" style="--i:1">
+          <dt>Backend APIs &amp; Automation</dt>
+          <dd><b>Python</b> · <b>FastAPI</b> · Kong API Gateway · WebSockets · REST · Docker · Docker Compose · Playwright & Pytest Testing</dd>
+        </div>
+        <div class="srow rv" style="--i:2">
+          <dt>Cloud infrastructure</dt>
+          <dd><b>Microsoft Azure</b> · Azure Container Apps (ACA) · Azure Kubernetes Service (AKS) · Azure Virtual Machines & AWS-EC2(Linux-Ubuntu) · Virtual networks &amp; private endpoints · Azure PostgreSQL · AWS S3 · GCP · Sandbox (deno-sandbox)</dd>
+        </div>
+        <div class="srow rv" style="--i:3">
+          <dt>Platform engineering</dt>
+          <dd><b>Microservices architecture</b> · API gateway &amp; routing · CI/CD · Multi-tenancy · Request tracing &amp; observability · Git-based versioning</dd>
+        </div>
+        <div class="srow rv" style="--i:4">
+          <dt>Cloud security</dt>
+          <dd><b>RBAC</b> · <b>Microsoft Entra ID SSO</b> · Private endpoint isolation · Audit logging · PII detection &amp; redaction · Policy controls</dd>
+        </div>
+        <div class="srow rv" style="--i:5">
+          <dt>Data &amp; analytics</dt>
+          <dd><b>Databricks</b> · <b>Snowflake</b> · Azure PostgreSQL · Cosmos DB · MongoDB · Text-to-SQL · LangChain SQL</dd>
+        </div>
+        <div class="srow rv" style="--i:6">
+          <dt>Retrieval &amp; document AI</dt>
+          <dd><b>Azure AI Search</b> · Pinecone · Milvus · Qdrant · ChromaDB · Weaviate · Azure Form Recognizer · Computer Vision · Docling · OCR</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ========================= 06 CREDENTIALS ========================= -->
+  <section class="creds" id="credentials">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow">06</span>
+        <h2 class="sec-title">Credentials</h2>
+        <span class="rule"></span>
+      </div>
+
+      <div class="creds-grid">
+        <div class="rv">
+          <h3>Education</h3>
+          <div class="cred">
+            <p class="t">Ballari Institute of Technology and Management</p>
+            <p class="m">B.E. — CGPA 7.95 · 2020–2024 · Ballari, India</p>
+          </div>
+        </div>
+
+        <div class="rv" style="--i:1">
+          <h3>Certifications</h3>
+          <div class="cred">
+            <p class="t">AI Agents Fundamentals</p>
+            <p class="m">Hugging Face · Mar 2026</p>
+          </div>
+          <div class="cred">
+            <p class="t">Introduction to Model Context Protocol</p>
+            <p class="m">Anthropic</p>
+          </div>
+          <div class="cred">
+            <p class="t">Foundation: Introduction to LangChain (Python)</p>
+            <p class="m">LangChain · Jan 2026</p>
+          </div>
+          <div class="cred">
+            <p class="t">Oracle Cloud Infrastructure Generative AI</p>
+            <p class="m">Oracle · Oct 2025</p>
+          </div>
+          <div class="cred">
+            <p class="t">Generative AI Fundamentals</p>
+            <p class="m">Databricks</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= CONTACT ========================= -->
+  <footer class="contact" id="contact">
+    <div class="wrap">
+      <p class="eyebrow rv">Contact</p>
+      <h2 class="rv" style="--i:1">Building something agentic that has to <span class="accent-em">actually ship?</span></h2>
+      <p class="body rv" style="--i:2">
+        I'm open to consulting engagements and full-time roles in agentic AI, platform engineering, and applied
+        LLM systems. The fastest way to reach me is email.
+      </p>
+
+      <div class="clinks rv" style="--i:3">
+        <a class="clink" href="mailto:amahadevgowda@gmail.com">
+          <span class="l">amahadevgowda@gmail.com</span>
+          <span class="r">Email <span aria-hidden="true">&#8599;</span></span>
+        </a>
+        <a class="clink" href="tel:+917337779323">
+          <span class="l">+91 733-777-9323</span>
+          <span class="r">Phone <span aria-hidden="true">&#8599;</span></span>
+        </a>
+        <a class="clink" href="https://www.linkedin.com/in/mahadeva-asundi/" target="_blank" rel="noopener">
+          <span class="l">in/mahadeva-asundi</span>
+          <span class="r">LinkedIn <span aria-hidden="true">&#8599;</span></span>
+        </a>
+        <a class="clink" href="https://github.com/asundimahadeva" target="_blank" rel="noopener">
+          <span class="l">asundimahadeva</span>
+          <span class="r">GitHub <span aria-hidden="true">&#8599;</span></span>
+        </a>
+      </div>
+
+      <div class="colophon">
+        <span>© <span id="yr">2026</span> Mahadeva Asundi</span>
+        <span>Set in Inter Tight &amp; JetBrains Mono</span>
+      </div>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+(function () {
+  'use strict';
+
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* --- scroll reveal --- */
+  var items = document.querySelectorAll('.rv');
+  if (reduce || !('IntersectionObserver' in window)) {
+    Array.prototype.forEach.call(items, function (el) { el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+    Array.prototype.forEach.call(items, function (el) { io.observe(el); });
+  }
+
+  /* --- rail active section --- */
+  var links = Array.prototype.slice.call(document.querySelectorAll('.rail-nav a'));
+  var targets = links
+    .map(function (a) { return document.querySelector(a.getAttribute('href')); })
+    .filter(Boolean);
+
+  function setActive(id) {
+    links.forEach(function (a) {
+      a.setAttribute('aria-current', a.getAttribute('href') === '#' + id ? 'true' : 'false');
+    });
+  }
+
+  if ('IntersectionObserver' in window && targets.length) {
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) setActive(e.target.id); });
+    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+    targets.forEach(function (t) { spy.observe(t); });
+  }
+})();
+</script>
+</body>
+</html>
